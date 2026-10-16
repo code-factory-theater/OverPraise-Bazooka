@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ほめ殺しバズーカ - 微細実績・過剰称賛システム</title>
+      <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="warning-overlay" id="warningOverlay">
+        <div class="warning-dialog">
+            <h2>⚠️ エラー：不当な謙遜を検知しました ⚠️</h2>
+            <p>貴様は偉いんだよ！</p>
+            <p style="font-size: 0.9em; color: #666;">自分を過小評価するのは禁止です。</p>
+            <button onclick="document.getElementById('warningOverlay').style.display = 'none';">わかりました。僕は偉いです。</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>🎉 ほめ殺しバズーカ 🎉</h1>
+        <p class="subtitle">〜 微細実績・過剰称賛システム 〜</p>
+
+        <div class="section">
+            <label for="achievement">📝 あなたが今日やった、ちょっとした実績を入力してください：</label>
+            <textarea id="achievement" placeholder="例：朝、7時に目が覚めた&#10;例：メールを返信した&#10;例：靴下を履いた"></textarea>
+            <div class="quick-buttons">
+                <button class="quick-btn" onclick="setAchievement('朝起きた')">朝起きた</button>
+                <button class="quick-btn" onclick="setAchievement('偉いので息をした')">偉いので息をした</button>
+                <button class="quick-btn" onclick="setAchievement('買った本を開かずに積んだ')">買った本を積んだ</button>
+                <button class="quick-btn" onclick="setAchievement('今日は怒らなかった')">怒らなかった</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <label>🎭 称賛モードを選択してください：</label>
+            <div class="mode-selector">
+                <input type="radio" id="mode1" name="mode" value="hotblood" class="mode-radio" checked>
+                <label for="mode1" class="mode-label">熱血少年漫画主人公</label>
+
+                <input type="radio" id="mode2" name="mode" value="warlord" class="mode-radio">
+                <label for="mode2" class="mode-label">戦国武将</label>
+
+                <input type="radio" id="mode3" name="mode" value="okan" class="mode-radio">
+                <label for="mode3" class="mode-label">過保護なオカン</label>
+
+                <input type="radio" id="mode4" name="mode" value="foreign" class="mode-radio">
+                <label for="mode4" class="mode-label">海外通販司会者</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="action-buttons">
+                <button class="praise-btn" onclick="generatePraise()">褒められに行く！</button>
+                <button class="mute-btn" id="muteBtn" onclick="toggleMute()">🔊 音ON</button>
+            </div>
+            <div class="error-message" id="errorMessage">実績を入力してください！</div>
+        </div>
+
+        <div class="result-container" id="resultContainer">
+            <div class="result-text" id="resultText"></div>
+            <button class="share-button" onclick="shareToX()">𝕏にシェアする</button>
+        </div>
+    </div>
+
+      <script src="js/app.js"></script>
+</body>
+</html>
